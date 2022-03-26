@@ -5,6 +5,7 @@ import 'package:todo_list_provider/app/core/database/sqlite_migration_factory.da
 
 class SqliteConnectionFactory {
   static const _version = 1;
+  // ignore: constant_identifier_names
   static const _database_name = 'TODO_LIST_PROVIDER';
   Database? _db;
 

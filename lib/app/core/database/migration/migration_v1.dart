@@ -15,7 +15,5 @@ class MigrationV1 extends Migration {
   }
 
   @override
-  void update(Batch batch) {
-    // TODO: implement update
-  }
+  void update(Batch batch) {}
 }
