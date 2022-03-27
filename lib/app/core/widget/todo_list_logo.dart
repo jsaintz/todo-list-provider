@@ -7,7 +7,8 @@ class TodoListLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      // mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.asset(
           'assets/logo.png',
