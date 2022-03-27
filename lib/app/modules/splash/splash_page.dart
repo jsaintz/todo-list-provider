@@ -9,7 +9,12 @@ class SplashPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(''),
       ),
-      body: Container(),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () => Navigator.of(context).pushNamed('/login'),
+          child: const Text('Login'),
+        ),
+      ),
     );
   }
 }
