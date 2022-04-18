@@ -16,20 +16,18 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) {
-          return SingleChildScrollView(
-            child: ConstrainedBox(
-              constraints: BoxConstraints(
-                maxHeight: constraints.maxHeight,
-                minWidth: constraints.maxWidth,
-              ),
-              child: IntrinsicHeight(
+          return ListView(
+            children: [
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxHeight: constraints.maxHeight,
+                  minWidth: constraints.maxWidth,
+                ),
                 child: Column(
-                  mainAxisSize: MainAxisSize.max,
                   children: [
-                    const SizedBox(height: 10),
                     const TodoListLogo(),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                       child: Form(
                         child: Column(
                           children: [
@@ -61,7 +59,6 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     const SizedBox(height: 20),
                     Expanded(
-                      flex: 1,
                       child: Container(
                         height: 350,
                         decoration: BoxDecoration(
@@ -87,11 +84,14 @@ class _LoginPageState extends State<LoginPage> {
                               onPressed: () {},
                             ),
                             Row(
+                              mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 const Text('Não tem conta?'),
                                 TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.of(context).pushNamed('/register');
+                                  },
                                   child: const Text('Cadastre-se'),
                                 ),
                               ],
@@ -103,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
               ),
-            ),
+            ],
           );
         },
       ),

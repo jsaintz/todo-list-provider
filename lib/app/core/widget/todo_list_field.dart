@@ -21,6 +21,8 @@ class TodoListField extends StatelessWidget {
     return ValueListenableBuilder<bool>(
       valueListenable: obscureTextVn,
       builder: (_, obscureTextValue, child) => TextFormField(
+        keyboardType: TextInputType.emailAddress,
+        textInputAction: TextInputAction.next,
         decoration: InputDecoration(
           labelText: label,
           labelStyle: const TextStyle(
