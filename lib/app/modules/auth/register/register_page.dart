@@ -67,7 +67,7 @@ class RegisterPage extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  TodoListField(label: 'Confirmar Senha',obscureText: true),
+                  TodoListField(label: 'Confirmar Senha', obscureText: true),
                   const SizedBox(
                     height: 20,
                   ),

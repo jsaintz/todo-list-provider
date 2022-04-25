@@ -15,14 +15,17 @@ class AppModule extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider(create: (_)=> FirebaseAuth.instance),
+        Provider(create: (_) => FirebaseAuth.instance),
         Provider(
           create: (_) => SqliteConnectionFactory(),
           lazy: false,
         ),
-
-        Provider<UserRepository>(create: (context)=> UserRepositoryImpl(firebaseAuth: context.read())),
-        Provider<UserService>(create: (context)=> UserServiceImpl(userRepository: context.read())),
+        Provider<UserRepository>(
+            create: (context) =>
+                UserRepositoryImpl(firebaseAuth: context.read())),
+        Provider<UserService>(
+            create: (context) =>
+                UserServiceImpl(userRepository: context.read())),
       ],
       child: const AppWidget(),
     );
