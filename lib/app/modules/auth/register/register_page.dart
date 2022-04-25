@@ -63,11 +63,11 @@ class RegisterPage extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  TodoListField(label: 'Senha'),
+                  TodoListField(label: 'Senha', obscureText: true),
                   const SizedBox(
                     height: 20,
                   ),
-                  TodoListField(label: 'Confirmar Senha'),
+                  TodoListField(label: 'Confirmar Senha',obscureText: true),
                   const SizedBox(
                     height: 20,
                   ),
