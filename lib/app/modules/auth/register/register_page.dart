@@ -120,8 +120,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       obscureText: true,
                       validator: Validatorless.multiple([
                         Validatorless.required('senha obrigatório'),
-                        Validatorless.min(
-                            6, 'Senha deve ter pelo menos 6 caracteres'),
+                        Validatorless.min(6, 'Senha deve ter pelo menos 6 caracteres'),
                       ]),
                     ),
                     const SizedBox(
@@ -133,8 +132,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       obscureText: true,
                       validator: Validatorless.multiple([
                         Validatorless.required('Confirmar senha obrigatório'),
-                        Validators.compare(
-                            _passwordEC, 'Senha diferente de confirma senha')
+                        Validators.compare(_passwordEC, 'Senha diferente de confirma senha')
                       ]),
                     ),
                     const SizedBox(
@@ -144,18 +142,18 @@ class _RegisterPageState extends State<RegisterPage> {
                       alignment: Alignment.bottomRight,
                       child: ElevatedButton(
                         onPressed: () {
-                          final formValid =
-                              _formKey.currentState?.validate() ?? false;
+                          final formValid = _formKey.currentState?.validate() ?? false;
                           if (formValid) {
                             final email = _emailEC.text;
                             final password = _passwordEC.text;
 
-                            context
-                                .read<RegisterController>()
-                                .registerUser(email, password);
+                            context.read<RegisterController>().registerUser(email, password);
                           }
                         },
-                        child: const Text('Salvar'),
+                        child: const Padding(
+                          padding: EdgeInsets.all(10.0),
+                          child: Text('Salvar'),
+                        ),
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
