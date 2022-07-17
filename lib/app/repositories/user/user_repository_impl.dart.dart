@@ -49,4 +49,22 @@ class UserRepositoryImpl implements UserRepository {
       throw AuthException(message: e.message ?? 'Erro ao realizar login');
     }
   }
+
+  @override
+  Future<void> forgotPassword(String email) async {
+    final loginMethods = await _firebaseAuth.fetchSignInMethodsForEmail(email);
+    try {
+      if (loginMethods.contains('password')) {
+        await _firebaseAuth.sendPasswordResetEmail(email: email);
+      } else if (loginMethods.contains('google')) {
+        throw AuthException(message: 'Cadastro realizado com o googl, não pode ser resetado a senha');
+      } else {
+        throw AuthException(message: 'E-mail não cadastrado');
+      }
+    } on PlatformException catch (e, s) {
+      log(e.toString());
+      log(s.toString());
+      throw AuthException(message: 'Erro ao resetar senha!!!');
+    }
+  }
 }
