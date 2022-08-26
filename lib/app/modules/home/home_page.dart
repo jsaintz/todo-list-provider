@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list_provider/app/core/ui/theme_extensions.dart';
 import 'package:todo_list_provider/app/core/ui/todo_list_icons.dart';
 import 'package:todo_list_provider/app/modules/home/widgets/home_drawer.dart';
 import 'package:todo_list_provider/app/modules/home/widgets/home_filters.dart';
 import 'package:todo_list_provider/app/modules/home/widgets/home_header.dart';
+import 'package:todo_list_provider/app/modules/home/widgets/home_tasks.dart';
+import 'package:todo_list_provider/app/modules/home/widgets/home_week_filter.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,7 +15,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.blue),
-        backgroundColor: Colors.transparent,
+        backgroundColor: const Color(0xFFFAFBFE),
         elevation: 0,
         actions: [
           PopupMenuButton(
@@ -23,6 +26,11 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: context.primaryColor,
+        child: const Icon(Icons.add),
+        onPressed: () {},
+      ),
       backgroundColor: const Color(0xFFFAFBFE),
       drawer: HomeDrawer(),
       body: LayoutBuilder(
@@ -32,14 +40,18 @@ class HomePage extends StatelessWidget {
               minHeight: constraints.maxHeight,
               minWidth: constraints.maxWidth,
             ),
-            child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-              child: IntrinsicHeight(
-                child: Column(
-                  children: const [
-                    HomeHeader(),
-                    HomeFilters(),
-                  ],
+            child: SingleChildScrollView(
+              child: Container(
+                margin: const EdgeInsets.symmetric(horizontal: 20),
+                child: IntrinsicHeight(
+                  child: Column(
+                    children: const [
+                      HomeHeader(),
+                      HomeFilters(),
+                      HomeWeekFilter(),
+                      HomeTasks(),
+                    ],
+                  ),
                 ),
               ),
             ),
