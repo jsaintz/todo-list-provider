@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:todo_list_provider/app/core/notifier/default_change_notifier.dart';
 import 'package:todo_list_provider/app/exception/auth_exception.dart';
 import 'package:todo_list_provider/app/services/user/user_service.dart';
@@ -12,6 +14,7 @@ class LoginController extends DefaultChangeNotifier {
       infoMessage = null;
       notifyListeners();
       final user = await _userService.googleLogin();
+      log(user.toString());
       if (user != null) {
         success();
       } else {

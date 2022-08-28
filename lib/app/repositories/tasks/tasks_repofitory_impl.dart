@@ -1,12 +1,11 @@
-import 'package:todo_list_provider/app/core/database/sqlite_adm_connection.dart';
 import 'package:todo_list_provider/app/core/database/sqlite_connection_factory.dart';
 
-import './task_repository.dart';
+import 'tasks_repository.dart';
 
-class TaskRepositoryImpl implements TaskRepository {
+class TasksRepositoryImpl implements TasksRepository {
   late final SqliteConnectionFactory _sqliteConnectionFactory;
 
-  TaskRepositoryImpl({
+  TasksRepositoryImpl({
     required SqliteConnectionFactory sqliteConnectionFactory,
   }) : _sqliteConnectionFactory = sqliteConnectionFactory;
 
@@ -15,9 +14,9 @@ class TaskRepositoryImpl implements TaskRepository {
     final conn = await _sqliteConnectionFactory.openConnetion();
     await conn.insert('todo', {
       'id': null,
-      'descricao': description,
-      'data_hora': date.toIso8601String(),
-      'finalizado': 0,
+      'descryption': description,
+      'date_time': date.toIso8601String(),
+      'done': 0,
     });
   }
 }
