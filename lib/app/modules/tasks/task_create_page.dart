@@ -5,9 +5,10 @@ import 'package:todo_list_provider/app/modules/tasks/task_create_controller.dart
 import 'package:todo_list_provider/app/modules/tasks/widget/calendar_button.dart';
 
 class TaskCreatePage extends StatelessWidget {
-  TaskCreateController _controller;
+  // ignore: unused_field
+  final TaskCreateController _controller;
 
-  TaskCreatePage({Key? key, required TaskCreateController controller})
+  const TaskCreatePage({Key? key, required TaskCreateController controller})
       : _controller = controller,
         super(key: key);
 
