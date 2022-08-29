@@ -1,7 +1,7 @@
 class TaskModel {
   final int id;
-  final String description;
-  final DateTime dateTime;
+  final String? description;
+  final DateTime? dateTime;
   final bool done;
 
   TaskModel({
@@ -14,8 +14,8 @@ class TaskModel {
   factory TaskModel.loadFromDB(Map<String, dynamic> task) {
     return TaskModel(
       id: task['id'],
-      description: task['description'],
-      dateTime: task['date_time'],
+      description: task['descryption'],
+      dateTime: DateTime.tryParse(task['date_time']),
       done: task['done'] == 1,
     );
   }

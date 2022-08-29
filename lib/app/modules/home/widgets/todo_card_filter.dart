@@ -54,10 +54,16 @@ class TodoCardFilter extends StatelessWidget {
             ),
             duration: const Duration(seconds: 1),
             builder: (context, value, child) {
+              double data = value;
+              if (data.isNaN || data.isInfinite) {
+                data = 0.0;
+              } else {
+                data = value;
+              }
               return LinearProgressIndicator(
                 backgroundColor: selected ? context.primaryColorLight : Colors.grey.shade300,
                 valueColor: AlwaysStoppedAnimation<Color>(selected ? Colors.white : context.primaryColor),
-                value: value,
+                value: data,
               );
             },
           ),
