@@ -1,6 +1,6 @@
 class TaskModel {
   final int id;
-  final String? description;
+  final String description;
   final DateTime? dateTime;
   final bool done;
 
