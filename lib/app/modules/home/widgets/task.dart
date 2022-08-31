@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_list_provider/app/models/task_model.dart';
+import 'package:todo_list_provider/app/modules/home/home_controller.dart';
 
 class Task extends StatelessWidget {
-  final TaskModel? taskModel;
+  final TaskModel taskModel;
   final dateFortmat = DateFormat('dd/MM/y');
   Task({Key? key, required this.taskModel}) : super(key: key);
 
@@ -20,19 +22,19 @@ class Task extends StatelessWidget {
         child: ListTile(
           contentPadding: const EdgeInsets.all(8),
           leading: Checkbox(
-            value: taskModel?.done,
-            onChanged: (value) {},
+            value: taskModel.done,
+            onChanged: (value) => context.read<HomeController>().checkOrUncheckTask(taskModel),
           ),
           title: Text(
-            taskModel!.description,
+            taskModel.description,
             style: TextStyle(
-              decoration: taskModel!.done ? TextDecoration.lineThrough : null,
+              decoration: taskModel.done ? TextDecoration.lineThrough : null,
             ),
           ),
           subtitle: Text(
-            dateFortmat.format(taskModel?.dateTime as DateTime),
+            dateFortmat.format(taskModel.dateTime as DateTime),
             style: TextStyle(
-              decoration: taskModel!.done ? TextDecoration.lineThrough : null,
+              decoration: taskModel.done ? TextDecoration.lineThrough : null,
             ),
           ),
           shape: RoundedRectangleBorder(
