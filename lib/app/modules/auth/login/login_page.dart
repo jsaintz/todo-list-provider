@@ -121,12 +121,12 @@ class _LoginPageState extends State<LoginPage> {
                                         context.read<LoginController>().login(email, password);
                                       }
                                     },
-                                    child: const Text('Login'),
                                     style: ElevatedButton.styleFrom(
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(20),
                                       ),
                                     ),
+                                    child: const Text('Login'),
                                   ),
                                 ],
                               ),
