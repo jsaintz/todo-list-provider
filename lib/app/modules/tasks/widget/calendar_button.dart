@@ -65,6 +65,7 @@ class _CalendarButtonState extends State<CalendarButton> {
       lastDate: currentDate,
     );
 
+    // ignore: use_build_context_synchronously
     context.read<TaskCreateController>().selectedDate = selectedDate;
   }
 }

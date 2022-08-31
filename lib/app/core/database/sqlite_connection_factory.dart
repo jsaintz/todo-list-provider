@@ -1,5 +1,6 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
+// ignore: depend_on_referenced_packages
 import 'package:synchronized/synchronized.dart';
 import 'package:todo_list_provider/app/core/database/sqlite_migration_factory.dart';
 
