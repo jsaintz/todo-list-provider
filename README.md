@@ -7,7 +7,7 @@
 Android,Ios, Web:
 
 ```text
- flutter packages get
+ flutter pub get
 ```
 
 ## Run
